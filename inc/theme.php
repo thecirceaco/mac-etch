@@ -18,6 +18,10 @@ add_action(
             );
         }
 
+        // The role check is intentional: client roles can carry admin-like
+        // capabilities. client.css and admin.css are cosmetic only and publicly
+        // downloadable, not access control.
+        // phpcs:ignore WordPress.WP.Capabilities.RoleFound -- Intentional: client roles can carry admin-like capabilities.
         if ( current_user_can( 'administrator' ) ) {
             return;
         }
